@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HIII BABYYY</title>
+  <style>
+    body {
+      background: linear-gradient(#ffd6e8, #fff);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 a {
+      text-decoration: none;
+      color: #ff4d88;
+      font-size: 40px;
+    }
+
+    h2 {
+      color: #ff4d88;
+      margin-top: 20px;
+    }
+
+    img {
+      width: 200px;
+      margin: 20px 0;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #ff66a3;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #ccc;
+      margin-left: 10px;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #ff4d88;
+    }
+  </style>
+</head>
+<body>
+
+  <h1><a href="#">HIII BABYYY</a></h1>
+
+  <h2>Will you be my Valentine? 💘</h2>
+
+  <img id="bearGif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" />
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="yesClicked()">YES 💖</button>
+    <button id="noBtn" onclick="noClicked()">NO 💔</button>
+  </div>
+
+  <div id="message"></div>
+
+  <script>
+    let yesSize = 18;
+    let noCount = 0;
+
+    const sadMessages = [
+      "Oh… that hurts 🥺",
+      "Please don’t say no 😢",
+      "The bear is crying now 🐻💔",
+      "I thought we had something 😭",
+      "I’ll wait forever… 💔"
+    ];
+
+    const sadGifs = [
+      "https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif",
+      "https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif",
+      "https://media.giphy.com/media/ISOckXUybVfQ4/giphy.gif"
+    ];
+
+    function noClicked() {
+      noCount++;
+      yesSize += 10;
+
+      document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+
+      document.getElementById("message").innerText =
+        sadMessages[noCount % sadMessages.length];
+
+      document.getElementById("bearGif").src =
+        sadGifs[noCount % sadGifs.length];
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <h1>YAY!!! 💖💖💖</h1>
+        <h2>You made me the happiest person ever 🥰</h2>
+        <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" />
+      `;
+    }
+  </script>
+
+</body>
+</html>
